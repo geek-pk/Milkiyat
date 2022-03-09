@@ -30,38 +30,61 @@ Widget skeletonLoader(context) {
         ),
         SizedBox(
           height: 400,
-          child: Expanded(
-            child: ListView.separated(
-              padding: const EdgeInsets.all(16),
-              itemCount: 10,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (BuildContext context, int index) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SkeletonLine(
-                      style: SkeletonLineStyle(
-                          height: 150,
-                          width: MediaQuery.of(context).size.width / 2,
-                          borderRadius: BorderRadius.circular(16)),
-                    ),
-                    const SizedBox(height: 12),
-                    SkeletonParagraph(
-                      style: SkeletonParagraphStyle(
-                        lines: 3,
-                        lineStyle: SkeletonLineStyle(
-                            randomLength: true,
-                            height: 10,
-                            borderRadius: BorderRadius.circular(16),
-                            maxLength: 150),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SkeletonLine(
+                        style: SkeletonLineStyle(
+                            height: 150,
+                            width: MediaQuery.of(context).size.width / 2,
+                            borderRadius: BorderRadius.circular(16)),
                       ),
-                    ),
-                  ],
-                );
-              },
-              separatorBuilder: (BuildContext context, int index) {
-                return const SizedBox(width: 16);
-              },
+                      const SizedBox(height: 12),
+                      SkeletonParagraph(
+                        style: SkeletonParagraphStyle(
+                          lines: 3,
+                          lineStyle: SkeletonLineStyle(
+                              randomLength: true,
+                              height: 10,
+                              borderRadius: BorderRadius.circular(16),
+                              maxLength: 150),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SkeletonLine(
+                        style: SkeletonLineStyle(
+                            height: 150,
+                            width: MediaQuery.of(context).size.width / 2,
+                            borderRadius: BorderRadius.circular(16)),
+                      ),
+                      const SizedBox(height: 12),
+                      SkeletonParagraph(
+                        style: SkeletonParagraphStyle(
+                          lines: 3,
+                          lineStyle: SkeletonLineStyle(
+                              randomLength: true,
+                              height: 10,
+                              borderRadius: BorderRadius.circular(16),
+                              maxLength: 150),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ),
